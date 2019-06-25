@@ -1,4 +1,4 @@
 # Microsoft Visual Azure Studio
-### A visual editor for Azure infrastructure
 ### by William M Mortl & Amanda Kaufman
+A visual design studio for Azure infrastructure.
 Garage project URL: https://garagehackbox.azurewebsites.net/hackathons/1857/projects/80498
