@@ -1,4 +1,4 @@
-# VisualAzureStudio
-### A visual editor for Azure infrastructure
-### Created by William M Mortl & Amanda Kaufman
-Project URL: https://garagehackbox.azurewebsites.net/hackathons/1857/projects/80498
+# Microsoft Visual Azure Studio
+### a visual editor for Azure infrastructure
+### created by William M Mortl & Amanda Kaufman
+Garage project URL: https://garagehackbox.azurewebsites.net/hackathons/1857/projects/80498
