@@ -8,7 +8,11 @@ namespace VisualAzureStudio.Models.Connections
     {
         [Browsable(false)]
         public Guid Id { get; set; } = Guid.NewGuid();
+
+        [Browsable(false)]
         public Guid Item1Id { get; set; }
+
+        [Browsable(false)]
         public Guid Item2Id { get; set; }
 
         [Browsable(false)]
