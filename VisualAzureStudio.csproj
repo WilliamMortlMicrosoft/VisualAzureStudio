@@ -106,6 +106,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Graphics\Aks16.png" />
+    <Content Include="Graphics\Aks32.png" />
+    <Content Include="Graphics\App Service 16.png" />
+    <Content Include="Graphics\App Service 32.png" />
+    <Content Include="Graphics\App Service.bmp" />
+    <Content Include="Graphics\App Service.png" />
+    <Content Include="Graphics\Key Vault 16a.png" />
+    <Content Include="Graphics\Key Vault 32.png" />
+    <Content Include="Graphics\Key Vault 32a.png" />
+    <Content Include="Graphics\Key Vault16.png" />
+    <Content Include="Graphics\MSI 16.png" />
+    <Content Include="Graphics\MSI 32.png" />
+    <Content Include="Graphics\SQL 16.png" />
+    <Content Include="Graphics\SQL 32.png" />
+    <Content Include="Graphics\SQL Server 16.png" />
+    <Content Include="Graphics\SQL Server 32.png" />
+    <Content Include="Graphics\VNET 16.png" />
+    <Content Include="Graphics\VNET 32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
