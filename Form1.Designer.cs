@@ -60,9 +60,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Canvas.BackColor = System.Drawing.SystemColors.Window;
-            this.Canvas.Location = new System.Drawing.Point(127, 44);
+            this.Canvas.Location = new System.Drawing.Point(152, 44);
             this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(725, 539);
+            this.Canvas.Size = new System.Drawing.Size(700, 539);
             this.Canvas.TabIndex = 0;
             this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
             this.Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDown);
@@ -87,13 +87,14 @@
             listViewItem3,
             listViewItem4,
             listViewItem5});
+            this.ToolBoxListView.LargeImageList = this.ImageList32;
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
-            this.ToolBoxListView.Size = new System.Drawing.Size(108, 539);
+            this.ToolBoxListView.Size = new System.Drawing.Size(133, 539);
             this.ToolBoxListView.SmallImageList = this.ImageList16;
             this.ToolBoxListView.TabIndex = 4;
             this.ToolBoxListView.UseCompatibleStateImageBehavior = false;
-            this.ToolBoxListView.View = System.Windows.Forms.View.SmallIcon;
+            this.ToolBoxListView.View = System.Windows.Forms.View.Tile;
             this.ToolBoxListView.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
             // 
             // label1
@@ -192,7 +193,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(130, 28);
+            this.label2.Location = new System.Drawing.Point(155, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 5;
