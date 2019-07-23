@@ -29,10 +29,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("App Service", 0);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("MSI", 3);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("App Service", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("MSI", 3);
             this.Canvas = new System.Windows.Forms.Panel();
             this.ImageList16 = new System.Windows.Forms.ImageList(this.components);
             this.ToolBoxListView = new System.Windows.Forms.ListView();
@@ -48,7 +48,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.FileExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.PropertiesLabel = new System.Windows.Forms.Label();
             this.GenerateButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,10 +80,10 @@
             this.ToolBoxListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ToolBoxListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
             this.ToolBoxListView.Size = new System.Drawing.Size(108, 539);
@@ -195,15 +195,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Canvas";
             // 
-            // label3
+            // PropertiesLabel
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(855, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Properties";
+            this.PropertiesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PropertiesLabel.AutoSize = true;
+            this.PropertiesLabel.Location = new System.Drawing.Point(855, 28);
+            this.PropertiesLabel.Name = "PropertiesLabel";
+            this.PropertiesLabel.Size = new System.Drawing.Size(54, 13);
+            this.PropertiesLabel.TabIndex = 5;
+            this.PropertiesLabel.Text = "Properties";
             // 
             // GenerateButton
             // 
@@ -222,7 +222,7 @@
             this.ClientSize = new System.Drawing.Size(1171, 595);
             this.Controls.Add(this.GenerateButton);
             this.Controls.Add(this.PropertyGrid);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.PropertiesLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ToolBoxListView);
@@ -253,7 +253,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem FileExitMenuItem;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label PropertiesLabel;
         private System.Windows.Forms.ToolStripMenuItem FileNewMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Button GenerateButton;

@@ -123,12 +123,29 @@ namespace VisualAzureStudio
             }
 
             Canvas.Controls.Add(newComponentControl);
-            PropertyGrid.SelectedObject = newComponent;
+            SwitchObjectSelection(newComponent);
+        }
+
+        private void SwitchObjectSelection(object component)
+        {
+            PropertyGrid.SelectedObject = component;
+
+            switch (component) {
+                case Design design:
+                    PropertiesLabel.Text = "Properties for Design";
+                    break;
+                case ConnectionBase connectionBase:
+                    PropertiesLabel.Text = "Properties for Connection";
+                    break;
+                case ComponentBase componentBase:
+                    PropertiesLabel.Text = "Properties for " + componentBase.Name;
+                    break;
+            }
         }
 
         private void component_Selected(object sender, EventArgs e)
         {
-            PropertyGrid.SelectedObject = (sender as Control).Tag;
+            SwitchObjectSelection((sender as Control)?.Tag as ComponentBase);
         }
 
         private void PropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
@@ -165,9 +182,16 @@ namespace VisualAzureStudio
         {
             // check if mouse clicked on line
 
+            ConnectionBase connection = design.FindByPoint(e.Location, 5);
+
+            if (connection != null) {
+                SwitchObjectSelection(connection);
+                return;
+            }
+
             // if not on line, then select whole design
 
-            PropertyGrid.SelectedObject = design;
+            SwitchObjectSelection(design);
         }
 
         private void FileOpenMenuItem_Click(object sender, EventArgs e)
@@ -210,25 +234,8 @@ namespace VisualAzureStudio
 
         private void Canvas_Paint(object sender, PaintEventArgs e)
         {
-            CalculateLines(design);
-            DrawLines(design, e.Graphics);
-        }
-
-        private void DrawLines(Design design1, Graphics graphics)
-        {
-            Pen pen = new Pen(Color.Silver, 5);
-
-            foreach (ConnectionBase connection in design.Connections) {
-                graphics.DrawLines(pen, new[] { connection.Start, new Point(connection.End.X, connection.Start.Y), connection.End });
-            }
-        }
-
-        private void CalculateLines(Design design1)
-        {
-            foreach (ConnectionBase connection in design.Connections) {
-                connection.Start = design.Components.First(c => c.Id == connection.Item1Id).Location.OffsetPoint(75, 34);
-                connection.End = design.Components.First(c => c.Id == connection.Item2Id).Location.OffsetPoint(75, 34);
-            }
+            design.CalculateLines();
+            design.DrawLines(e.Graphics);
         }
 
         private void FileNewMenuItem_Click(object sender, EventArgs e)
