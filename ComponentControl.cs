@@ -76,8 +76,16 @@ namespace VisualAzureStudio
             // determine allowed connection types and populate the Connect To menu
             ConnectToMenuItem.DropDownItems.Clear();
 
+            ComponentBase tagComponent = (ComponentBase)Tag;
+
             foreach (ComponentBase component in Form1.design.Components.Where(c => c != Tag)) {
-                if (!AllowedConnections.Allowed.Any(a => a.Item1 == Tag.GetType() && a.Item2 == component.GetType() || a.Item1 == component.GetType() && a.Item2 == Tag.GetType())) {
+                // skip if connection is not allowed
+                if (!AllowedConnections.Allowed.Any(a => a.Item1 == tagComponent.GetType() && a.Item2 == component.GetType() || a.Item1 == component.GetType() && a.Item2 == tagComponent.GetType())) {
+                    continue;
+                }
+
+                // skip if connection already exists
+                if (Form1.design.Connections.Any(c => c.Item1Id == component.Id && c.Item2Id == tagComponent.Id || c.Item1Id == tagComponent.Id && c.Item2Id == component.Id)) {
                     continue;
                 }
 
