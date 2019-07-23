@@ -10,8 +10,8 @@ namespace VisualAzureStudio.Models.Components
         [Browsable(false)]
         public Guid Id { get; set; } = Guid.NewGuid();
 
-        [Description("ID of the Azure resource group that will contain this component.")]
-        public Guid ResourceGroupId { get; set; }
+        [Description("Name of the Azure resource group that will contain this component.")]
+        public string ResourceGroup { get; set; }
 
         [Description("Name of this component.")]
         public string Name { get; set; }
