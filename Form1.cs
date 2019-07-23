@@ -34,7 +34,8 @@ namespace VisualAzureStudio
                     NewComponentControl(
                         new AppService {
                             Name = GetFreeName("App Service", design),
-                            Location = GetFreeLocation(design)
+                            Location = GetFreeLocation(design),
+                            ResourceGroup = design.GetCommonResourceGroup()
                         },
                         false);
                     break;
@@ -43,7 +44,8 @@ namespace VisualAzureStudio
                     NewComponentControl(
                         new KeyVault {
                             Name = GetFreeName("Key Vault", design),
-                            Location = GetFreeLocation(design)
+                            Location = GetFreeLocation(design),
+                            ResourceGroup = design.GetCommonResourceGroup()
                         },
                         false);
                     break;
@@ -52,7 +54,8 @@ namespace VisualAzureStudio
                     NewComponentControl(
                         new SqlDatabase {
                             Name = GetFreeName("SQL Server", design),
-                            Location = GetFreeLocation(design)
+                            Location = GetFreeLocation(design),
+                            ResourceGroup = design.GetCommonResourceGroup()
                         },
                         false);
                     break;
@@ -61,7 +64,8 @@ namespace VisualAzureStudio
                     NewComponentControl(
                         new Msi {
                             Name = GetFreeName("MSI", design),
-                            Location = GetFreeLocation(design)
+                            Location = GetFreeLocation(design),
+                            ResourceGroup = design.GetCommonResourceGroup()
                         },
                         false);
                     break;
@@ -69,7 +73,8 @@ namespace VisualAzureStudio
                     NewComponentControl(
                         new Aks {
                             Name = GetFreeName("AKS", design),
-                            Location = GetFreeLocation(design)
+                            Location = GetFreeLocation(design),
+                            ResourceGroup = design.GetCommonResourceGroup()
                         },
                         false);
                     break;

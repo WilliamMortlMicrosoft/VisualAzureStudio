@@ -75,5 +75,24 @@ namespace VisualAzureStudio
                 graphics.DrawLines(pen, new[] { connection.Start, new Point(connection.End.X, connection.Start.Y), connection.End });
             }
         }
+
+        internal static string GetCommonResourceGroup(this Design design)
+        {
+            if (design.Components == null || design.Components.Count == 0) {
+                return "MyResourceGroup";
+            }
+
+            string commonResourceGroup = design.Components[0].ResourceGroup;
+
+            if (design.Components.Count == 1) {
+                return commonResourceGroup;
+            }
+
+            if (design.Components.Skip(1).Any(component => component.ResourceGroup != commonResourceGroup)) {
+                return "MyResourceGroup";
+            }
+
+            return commonResourceGroup;
+        }
     }
 }
