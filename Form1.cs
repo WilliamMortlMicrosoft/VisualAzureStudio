@@ -33,7 +33,7 @@ namespace VisualAzureStudio
                 case "App Service":
                     NewComponentControl(
                         new AppService {
-                            Name = GetFreeName("App Service", design),
+                            Name = GetFreeName("AppService", design),
                             Location = GetFreeLocation(design),
                             ResourceGroup = design.GetCommonResourceGroup()
                         },
@@ -43,7 +43,7 @@ namespace VisualAzureStudio
                 case "Key Vault":
                     NewComponentControl(
                         new KeyVault {
-                            Name = GetFreeName("Key Vault", design),
+                            Name = GetFreeName("KeyVault", design),
                             Location = GetFreeLocation(design),
                             ResourceGroup = design.GetCommonResourceGroup()
                         },
@@ -53,7 +53,7 @@ namespace VisualAzureStudio
                 case "SQL Database":
                     NewComponentControl(
                         new SqlDatabase {
-                            Name = GetFreeName("SQL Server", design),
+                            Name = GetFreeName("SQLServer", design),
                             Location = GetFreeLocation(design),
                             ResourceGroup = design.GetCommonResourceGroup()
                         },
@@ -101,7 +101,7 @@ namespace VisualAzureStudio
             }
 
             if ((design.Components?.Count ?? 0) == 0) {
-                return typeDescription + " 1";
+                return typeDescription + "1";
             }
 
             int resultIndex = 0;
@@ -111,7 +111,7 @@ namespace VisualAzureStudio
 
             while (!nameUnique) {
                 resultIndex++;
-                testName = typeDescription + " " + resultIndex;
+                testName = typeDescription + resultIndex;
                 nameUnique = !design.Components?.Any(c => c.Name.Equals(testName, StringComparison.InvariantCultureIgnoreCase)) ?? false;
             }
 
