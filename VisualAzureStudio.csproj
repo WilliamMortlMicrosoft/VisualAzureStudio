@@ -74,7 +74,6 @@
     <Compile Include="Models\Components\KeyVault.cs" />
     <Compile Include="Models\Design.cs" />
     <Compile Include="Models\Regions.cs" />
-    <Compile Include="Models\ResourceGroup.cs" />
     <Compile Include="Models\Components\SqlDatabase.cs" />
     <Compile Include="Models\ServicePrincipal.cs" />
     <Compile Include="Program.cs" />
