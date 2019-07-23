@@ -65,6 +65,14 @@ namespace VisualAzureStudio
                         },
                         false);
                     break;
+                case "AKS":
+                    NewComponentControl(
+                        new Aks {
+                            Name = GetFreeName("AKS", design),
+                            Location=GetFreeLocation(design)
+                        },
+                        false);
+                    break;
             }
         }
 

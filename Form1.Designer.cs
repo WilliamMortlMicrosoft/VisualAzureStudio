@@ -33,6 +33,7 @@
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("MSI", 3);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("AKS", 4);
             this.Canvas = new System.Windows.Forms.Panel();
             this.ImageList16 = new System.Windows.Forms.ImageList(this.components);
             this.ToolBoxListView = new System.Windows.Forms.ListView();
@@ -74,6 +75,7 @@
             this.ImageList16.Images.SetKeyName(1, "Key Vault 16a.png");
             this.ImageList16.Images.SetKeyName(2, "SQL 16.png");
             this.ImageList16.Images.SetKeyName(3, "MSI 16.png");
+            this.ImageList16.Images.SetKeyName(4, "Aks16.png");
             // 
             // ToolBoxListView
             // 
@@ -83,7 +85,8 @@
             listViewItem1,
             listViewItem2,
             listViewItem3,
-            listViewItem4});
+            listViewItem4,
+            listViewItem5});
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
             this.ToolBoxListView.Size = new System.Drawing.Size(108, 539);
@@ -92,7 +95,6 @@
             this.ToolBoxListView.UseCompatibleStateImageBehavior = false;
             this.ToolBoxListView.View = System.Windows.Forms.View.SmallIcon;
             this.ToolBoxListView.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
-            this.ToolBoxListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -111,6 +113,7 @@
             this.ImageList32.Images.SetKeyName(1, "Key Vault 32a.png");
             this.ImageList32.Images.SetKeyName(2, "SQL 32.png");
             this.ImageList32.Images.SetKeyName(3, "MSI 32.png");
+            this.ImageList32.Images.SetKeyName(4, "Aks32.png");
             // 
             // PropertyGrid
             // 

@@ -62,6 +62,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Components\Aks.cs" />
     <Compile Include="Models\Components\Msi.cs" />
     <Compile Include="Models\Components\AppService.cs" />
     <Compile Include="Models\Components\ComponentBase.cs" />
