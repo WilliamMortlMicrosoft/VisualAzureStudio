@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace VisualAzureStudio.Models.Components
 {
+    /// <summary>
+    /// Managed Service Identity.
+    /// </summary>
     public class Msi : ComponentBase
     {
         // Publish = Code or Docket Image
