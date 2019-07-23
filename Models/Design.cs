@@ -31,5 +31,6 @@ namespace VisualAzureStudio.Models
         /// Gets or sets the path to the containing folder of the design.
         /// </summary>
         public string Path { get; set; }
+
     }
 }

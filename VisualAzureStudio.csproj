@@ -73,6 +73,7 @@
     <Compile Include="Models\Connections\MsiSqlDatabaseConnection.cs" />
     <Compile Include="Models\Components\KeyVault.cs" />
     <Compile Include="Models\Design.cs" />
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\Regions.cs" />
     <Compile Include="Models\ResourceGroup.cs" />
     <Compile Include="Models\Components\SqlDatabase.cs" />
@@ -94,6 +95,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ARMTemplates\AKS\template.json" />
+    <None Include="ARMTemplates\CosmosDB\template.json" />
+    <None Include="ARMTemplates\KeyVault\parameter.json" />
+    <None Include="ARMTemplates\KeyVault\template.json" />
+    <None Include="ARMTemplates\WebApp\template.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
