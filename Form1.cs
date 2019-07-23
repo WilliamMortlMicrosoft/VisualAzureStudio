@@ -17,16 +17,6 @@ namespace VisualAzureStudio
             InitializeComponent();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             switch (ToolBoxListView.SelectedItems[0].Text) {
