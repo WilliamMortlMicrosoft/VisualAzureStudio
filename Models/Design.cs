@@ -22,6 +22,7 @@ namespace VisualAzureStudio.Models
         [Browsable(false)]
         public List<ComponentBase> Components { get; set; } = new List<ComponentBase>();
 
+        [Browsable(false)]
         public List<ConnectionBase> Connections { get; set; } = new List<ConnectionBase>();
 
         public List<KeyValuePair<string, string>> Parameters { get; set; }
