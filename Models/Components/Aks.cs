@@ -5,7 +5,7 @@ namespace VisualAzureStudio.Models.Components
 {
     public class Aks : ComponentBase
     {
-        public ServicePrincipal ServicePrincipal { get; set; }
+        public ServicePrincipal ServicePrincipal { get; set; } = new ServicePrincipal();
 
         [Description("Number of nodes in this service.")]
         public int NodeCount { get; set; } = 1;
