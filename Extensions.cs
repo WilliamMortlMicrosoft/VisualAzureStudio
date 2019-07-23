@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using VisualAzureStudio.Models;
 using VisualAzureStudio.Models.Connections;
 
@@ -93,6 +94,22 @@ namespace VisualAzureStudio
             }
 
             return commonResourceGroup;
+        }
+
+        /// <summary>
+        /// Returns the most popular region used by all component referencing the given resource group.
+        /// </summary>
+        /// <param name="design">Design containing the components to get region from.</param>
+        /// <param name="resourceGroup">Name of the resource group to filter to.</param>
+        /// <returns></returns>
+        internal static Regions GetMostPopularRegion(this Design design, string resourceGroup)
+        {
+            return design.Components?
+                         .Where(c => c.ResourceGroup == resourceGroup)
+                         .GroupBy(c => c.Region)
+                         .OrderByDescending(c => c.Count())
+                         .FirstOrDefault()?
+                         .FirstOrDefault()?.Region ?? Regions.EastUS;
         }
     }
 }
