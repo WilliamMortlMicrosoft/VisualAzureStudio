@@ -15,6 +15,6 @@ namespace VisualAzureStudio.Models.Components
         // SKU
         public override string TypeDescription => "MSI";
         public override int ImageIndex => 3;
-        public override Color BackColor => Color.LightCyan;
+        public override Color BackColor => Color.FromArgb(255, 207, 231, 255);
     }
 }
