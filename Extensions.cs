@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using System.Net.NetworkInformation;
 using VisualAzureStudio.Models;
 using VisualAzureStudio.Models.Connections;
 

@@ -13,8 +13,6 @@ namespace VisualAzureStudio.Models
 
         public Guid SubscriptionId { get; set; }
 
-        public List<ResourceGroup> ResourceGroups { get; set; }
-
         public List<ServicePrincipal> RuntimeServicePrincipals { get; set; }
 
         public List<ServicePrincipal> DeploymentServicePrincipals { get; set; }
