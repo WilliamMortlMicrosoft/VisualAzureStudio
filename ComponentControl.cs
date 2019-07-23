@@ -91,7 +91,7 @@ namespace VisualAzureStudio
 
                 ToolStripButton toolStripButton = new ToolStripButton {
                     Text = component.Name,
-                    Tag = new Tuple<ComponentBase, ComponentBase>(component, Tag as ComponentBase)
+                    Tag = new Tuple<ComponentBase, ComponentBase>(component, tagComponent)
                 };
 
                 toolStripButton.Click += ComponentControl_Click;
