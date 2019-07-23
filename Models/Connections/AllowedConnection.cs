@@ -13,7 +13,8 @@ namespace VisualAzureStudio.Models.Connections
     {
         public static List<AllowedConnection> Allowed { get; } = new List<AllowedConnection> {
             new AllowedConnection(typeof(Msi), typeof(SqlDatabase)),
-            new AllowedConnection(typeof(Msi), typeof(Aks))
+            new AllowedConnection(typeof(Msi), typeof(Aks)),
+            new AllowedConnection(typeof(Msi), typeof(KeyVault))
         };
     }
 }
