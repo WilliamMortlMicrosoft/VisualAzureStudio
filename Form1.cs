@@ -69,7 +69,7 @@ namespace VisualAzureStudio
                     NewComponentControl(
                         new Aks {
                             Name = GetFreeName("AKS", design),
-                            Location=GetFreeLocation(design)
+                            Location = GetFreeLocation(design)
                         },
                         false);
                     break;
@@ -121,6 +121,7 @@ namespace VisualAzureStudio
                 ComponentTypeImage = { Image = ImageList32.Images[newComponent.ImageIndex] },
                 ComponnentTypeLabel = { Text = newComponent.TypeDescription },
                 NameLabel = { Text = newComponent.Name },
+                ResourceGroupLabel = { Text = "RG: " + newComponent.ResourceGroup },
                 BackColor = newComponent.BackColor
             };
 
@@ -158,16 +159,31 @@ namespace VisualAzureStudio
 
         private void PropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
-            if (e.ChangedItem.Label == "Name") {
-                ((ComponentBase)PropertyGrid.SelectedObject).Name = (string)e.ChangedItem.Value;
-                
-                // update UI
+            switch (e.ChangedItem.Label) {
+                case "Name":
+                    ((ComponentBase)PropertyGrid.SelectedObject).Name = (string)e.ChangedItem.Value;
 
-                foreach (ComponentControl control in Canvas.Controls.OfType<ComponentControl>()) {
-                    if (control.Tag == PropertyGrid.SelectedObject) {
-                        control.NameLabel.Text = (string)e.ChangedItem.Value;
+                    // update UI
+
+                    foreach (ComponentControl control in Canvas.Controls.OfType<ComponentControl>()) {
+                        if (control.Tag == PropertyGrid.SelectedObject) {
+                            control.NameLabel.Text = (string)e.ChangedItem.Value;
+                        }
                     }
-                }
+
+                    break;
+                case "ResourceGroup":
+                    ((ComponentBase)PropertyGrid.SelectedObject).ResourceGroup = (string)e.ChangedItem.Value;
+
+                    // update UI
+
+                    foreach (ComponentControl control in Canvas.Controls.OfType<ComponentControl>()) {
+                        if (control.Tag == PropertyGrid.SelectedObject) {
+                            control.ResourceGroupLabel.Text = "RG: " + (string)e.ChangedItem.Value;
+                        }
+                    }
+
+                    break;
             }
         }
 
