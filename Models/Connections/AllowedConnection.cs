@@ -12,7 +12,8 @@ namespace VisualAzureStudio.Models.Connections
     public class AllowedConnections : List<AllowedConnection>
     {
         public static List<AllowedConnection> Allowed { get; } = new List<AllowedConnection> {
-            new AllowedConnection(typeof(Msi), typeof(SqlDatabase))
+            new AllowedConnection(typeof(Msi), typeof(SqlDatabase)),
+            new AllowedConnection(typeof(Msi), typeof(Aks))
         };
     }
 }
