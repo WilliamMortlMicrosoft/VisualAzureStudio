@@ -155,6 +155,7 @@ namespace VisualAzureStudio
                 };
 
                 File.WriteAllText(dialog.FileName, JsonConvert.SerializeObject(design, settings));
+                design.Path = dialog.FileName;
             }
         }
 
@@ -186,6 +187,8 @@ namespace VisualAzureStudio
                 };
 
                 ResetCanvas(JsonConvert.DeserializeObject<Design>(File.ReadAllText(dialog.FileName), settings));
+
+                design.Path = dialog.FileName;
             }
 
             Canvas.Invalidate();
@@ -228,11 +231,29 @@ namespace VisualAzureStudio
             }
         }
 
-            private void FileNewMenuItem_Click(object sender, EventArgs e)
+        private void FileNewMenuItem_Click(object sender, EventArgs e)
         {
             Canvas.Controls.Clear();
             design = new Design();
             Canvas.Invalidate();
+        }
+
+        private void GenerateButton_Click(object sender, EventArgs e)
+        {
+            if (design.Path == null) {
+                // design must be saved first to establish the path
+                FileSaveAsMenuItem_Click(this, new EventArgs());
+            }
+
+            if (design.Path == null) {
+                return;
+            }
+
+            string outputFolder = Path.Combine(Path.GetDirectoryName(design.Path), Path.GetFileNameWithoutExtension(design.Path)) + "_output";
+
+            // call generate method here
+
+            throw new NotImplementedException();
         }
     }
 }

@@ -25,5 +25,10 @@ namespace VisualAzureStudio.Models
         public List<ConnectionBase> Connections { get; set; } = new List<ConnectionBase>();
 
         public List<KeyValuePair<string, string>> Parameters { get; set; }
+
+        /// <summary>
+        /// Gets or sets the path to the containing folder of the design.
+        /// </summary>
+        public string Path { get; set; }
     }
 }
