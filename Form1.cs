@@ -160,6 +160,14 @@ namespace VisualAzureStudio
         {
             if (e.ChangedItem.Label == "Name") {
                 ((ComponentBase)PropertyGrid.SelectedObject).Name = (string)e.ChangedItem.Value;
+                
+                // update UI
+
+                foreach (ComponentControl control in Canvas.Controls.OfType<ComponentControl>()) {
+                    if (control.Tag == PropertyGrid.SelectedObject) {
+                        control.NameLabel.Text = (string)e.ChangedItem.Value;
+                    }
+                }
             }
         }
 
