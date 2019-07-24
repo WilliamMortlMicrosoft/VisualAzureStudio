@@ -8,6 +8,8 @@ namespace VisualAzureStudio.Models
 {
     public class Design
     {
+        public bool IsDirty { get; set; } = false;
+
         [Browsable(false)]
         public Guid ResourceGroupId { get; set; }
 
