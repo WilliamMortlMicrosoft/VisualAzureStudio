@@ -220,7 +220,7 @@
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(301, 44);
             this.GenerateButton.TabIndex = 9;
-            this.GenerateButton.Text = "Generate";
+            this.GenerateButton.Text = "Generate Scripts";
             this.GenerateButton.UseVisualStyleBackColor = true;
             this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
             // 
