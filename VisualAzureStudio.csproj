@@ -79,6 +79,7 @@
     <Compile Include="Models\Regions.cs" />
     <Compile Include="Models\Components\SqlDatabase.cs" />
     <Compile Include="Models\ServicePrincipal.cs" />
+    <Compile Include="NoTypeConverterJsonConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ComponentControl.resx">
