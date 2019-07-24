@@ -42,16 +42,20 @@
             // 
             // ComponentTypeImage
             // 
+            this.ComponentTypeImage.Enabled = false;
             this.ComponentTypeImage.Location = new System.Drawing.Point(3, 3);
             this.ComponentTypeImage.Name = "ComponentTypeImage";
             this.ComponentTypeImage.Size = new System.Drawing.Size(32, 32);
             this.ComponentTypeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ComponentTypeImage.TabIndex = 0;
             this.ComponentTypeImage.TabStop = false;
+            this.ComponentTypeImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseDown);
             // 
             // ComponnentTypeLabel
             // 
             this.ComponnentTypeLabel.AutoSize = true;
+            this.ComponnentTypeLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ComponnentTypeLabel.ForeColor = System.Drawing.Color.Black;
             this.ComponnentTypeLabel.Location = new System.Drawing.Point(3, 39);
             this.ComponnentTypeLabel.Name = "ComponnentTypeLabel";
             this.ComponnentTypeLabel.Size = new System.Drawing.Size(92, 13);
@@ -64,20 +68,26 @@
             // ResourceGroupLabel
             // 
             this.ResourceGroupLabel.AutoSize = true;
+            this.ResourceGroupLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ResourceGroupLabel.ForeColor = System.Drawing.Color.Black;
             this.ResourceGroupLabel.Location = new System.Drawing.Point(3, 56);
             this.ResourceGroupLabel.Name = "ResourceGroupLabel";
             this.ResourceGroupLabel.Size = new System.Drawing.Size(29, 13);
             this.ResourceGroupLabel.TabIndex = 2;
             this.ResourceGroupLabel.Text = "RG: ";
+            this.ResourceGroupLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseDown);
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
+            this.NameLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.NameLabel.ForeColor = System.Drawing.Color.Black;
             this.NameLabel.Location = new System.Drawing.Point(41, 13);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(17, 13);
             this.NameLabel.TabIndex = 3;
             this.NameLabel.Text = "\"\"";
+            this.NameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseDown);
             // 
             // ContextMenu
             // 
@@ -87,24 +97,24 @@
             this.deleteToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
             this.ContextMenu.ShowImageMargin = false;
-            this.ContextMenu.Size = new System.Drawing.Size(156, 76);
+            this.ContextMenu.Size = new System.Drawing.Size(111, 54);
             this.ContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenu_Opening);
             // 
             // ConnectToMenuItem
             // 
             this.ConnectToMenuItem.Name = "ConnectToMenuItem";
-            this.ConnectToMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ConnectToMenuItem.Size = new System.Drawing.Size(110, 22);
             this.ConnectToMenuItem.Text = "Connect To";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(107, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.deleteToolStripMenuItem.Text = "Delete...";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -117,6 +127,7 @@
             this.Controls.Add(this.ResourceGroupLabel);
             this.Controls.Add(this.ComponnentTypeLabel);
             this.Controls.Add(this.ComponentTypeImage);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ComponentControl";
             this.Size = new System.Drawing.Size(156, 74);
             this.LocationChanged += new System.EventHandler(this.ComponentControl_LocationChanged);

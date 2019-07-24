@@ -34,6 +34,7 @@ namespace VisualAzureStudio
                 case ComponentControl _:
                     activeControl = sender as Control;
                     break;
+                case PictureBox _:
                 case TextBox _:
                 case Label _:
                     activeControl = (sender as Control).Parent;
@@ -42,11 +43,9 @@ namespace VisualAzureStudio
 
             if (activeControl.GetType() != typeof(ComponentControl)) {
                 Debugger.Break();
-                ;
             }
 
             previousLocation = e.Location;
-            Cursor = Cursors.Hand;
         }
 
         private void componentControl_MouseMove(object sender, MouseEventArgs e)
@@ -64,7 +63,6 @@ namespace VisualAzureStudio
         private void componentControl_MouseUp(object sender, MouseEventArgs e)
         {
             activeControl = null;
-            Cursor = Cursors.Default;
         }
 
         private void ComponentControl_LocationChanged(object sender, EventArgs e)
