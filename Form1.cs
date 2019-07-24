@@ -133,6 +133,7 @@ namespace VisualAzureStudio
             };
 
             newComponentControl.Selected += component_Selected;
+            newComponentControl.Deleted += component_Deleted;
 
             if (!existing) {
                 design.Components.Add(newComponent);
@@ -141,6 +142,24 @@ namespace VisualAzureStudio
 
             Canvas.Controls.Add(newComponentControl);
             SwitchObjectSelection(newComponent);
+        }
+
+        private void component_Deleted(object sender, EventArgs eventArgs)
+        {
+            ComponentBase componentBeingDeleted = (sender as Control).Tag as ComponentBase;
+
+            // delete any related connections
+
+            design.Connections.RemoveAll(c => c.Item1Id == componentBeingDeleted.Id || c.Item2Id == componentBeingDeleted.Id);
+
+            // delete object
+
+            design.Components.Remove(componentBeingDeleted);
+
+            // delete control
+
+            Canvas.Controls.Remove(sender as Control);
+            Canvas.Invalidate();
         }
 
         private void SwitchObjectSelection(object component)
@@ -307,8 +326,7 @@ namespace VisualAzureStudio
 
             List<Violation> violations = design.GetViolations();
 
-            if (violations != null && violations.Count > 0)
-            {
+            if (violations != null && violations.Count > 0) {
                 MessageBox.Show(violations.Select(v => v.Description).Aggregate((a, b) => a + "\r\n" + b));
                 return;
             }
@@ -325,8 +343,7 @@ namespace VisualAzureStudio
             string outputFolder = Path.Combine(Path.GetDirectoryName(design.Path), Path.GetFileNameWithoutExtension(design.Path)) + "_output";
 
             // call generate method here
-            if (Helper.GenerateAZ(design, outputFolder))
-            {
+            if (Helper.GenerateAZ(design, outputFolder)) {
                 // Dialog box: generated AZ successfully
                 MessageBox.Show("AZ command file generated successfully!");
             }

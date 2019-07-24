@@ -11,9 +11,9 @@ namespace VisualAzureStudio
 {
     public partial class ComponentControl : UserControl
     {
-        public event SelectedEventHandler Selected;
-        public delegate void SelectedEventHandler(object sender, EventArgs e);
-
+        public event EventHandler Selected;
+        public event EventHandler Deleted;
+      
         public ComponentControl()
         {
             InitializeComponent();
@@ -115,6 +115,15 @@ namespace VisualAzureStudio
             Form1.design.IsDirty = true;
 
             Parent.Invalidate();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ComponentBase component = Tag as ComponentBase;
+
+            if (MessageBox.Show($"Delete {component.TypeDescription} \"{component.Name}\"?", "Visual Azure Studio", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                Deleted?.Invoke(this, new EventArgs());
+            }
         }
     }
 }

@@ -34,6 +34,8 @@
             this.NameLabel = new System.Windows.Forms.Label();
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ConnectToMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ComponentTypeImage)).BeginInit();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -80,17 +82,31 @@
             // ContextMenu
             // 
             this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ConnectToMenuItem});
+            this.ConnectToMenuItem,
+            this.toolStripMenuItem1,
+            this.deleteToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
             this.ContextMenu.ShowImageMargin = false;
-            this.ContextMenu.Size = new System.Drawing.Size(111, 26);
+            this.ContextMenu.Size = new System.Drawing.Size(156, 76);
             this.ContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenu_Opening);
             // 
             // ConnectToMenuItem
             // 
             this.ConnectToMenuItem.Name = "ConnectToMenuItem";
-            this.ConnectToMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.ConnectToMenuItem.Size = new System.Drawing.Size(155, 22);
             this.ConnectToMenuItem.Text = "Connect To";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.deleteToolStripMenuItem.Text = "Delete...";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // ComponentControl
             // 
@@ -122,5 +138,7 @@
         public System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.ContextMenuStrip ContextMenu;
         private System.Windows.Forms.ToolStripMenuItem ConnectToMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
