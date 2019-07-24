@@ -15,7 +15,8 @@ namespace VisualAzureStudio.Models.Connections
             new AllowedConnection(typeof(Msi), typeof(SqlDatabase), typeof(MsiSqlDatabaseConnection)),
             new AllowedConnection(typeof(Msi), typeof(Aks), typeof(MsiAksConnection)),
             new AllowedConnection(typeof(Msi), typeof(KeyVault), typeof(MsiKeyVaultConnection)),
-            new AllowedConnection(typeof(SqlDatabase), typeof(SqlServer), typeof(SqlDatabaseSqlServerConnection))
+            new AllowedConnection(typeof(SqlDatabase), typeof(SqlServer), typeof(SqlDatabaseSqlServerConnection)),
+            new AllowedConnection(typeof(AppService), typeof(Msi), typeof(MsiAppServiceConnection))
         };
     }
 }

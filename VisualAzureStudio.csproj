@@ -71,6 +71,7 @@
     <Compile Include="Models\Connections\ConnectionBase.cs" />
     <Compile Include="Models\Connections\MsiKeyVaultConnection.cs" />
     <Compile Include="Models\Connections\MsiAksConnection.cs" />
+    <Compile Include="Models\Connections\MsiAppServiceConnection.cs" />
     <Compile Include="Models\Connections\SqlDatabaseSqlServerConnection.cs" />
     <Compile Include="Models\Connections\MsiSqlDatabaseConnection.cs" />
     <Compile Include="Models\Components\KeyVault.cs" />
