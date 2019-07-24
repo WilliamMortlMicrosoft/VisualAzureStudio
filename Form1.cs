@@ -325,9 +325,9 @@ namespace VisualAzureStudio
             string outputFolder = Path.Combine(Path.GetDirectoryName(design.Path), Path.GetFileNameWithoutExtension(design.Path)) + "_output";
 
             // call generate method here
-            if (Helper.GenerateARM(design, outputFolder))
+            if (Helper.GenerateAZ(design, outputFolder))
             {
-                // Dialog box: generated ARM successfully
+                // Dialog box: generated AZ successfully
                 MessageBox.Show("AZ command file generated successfully!");
             }
         }

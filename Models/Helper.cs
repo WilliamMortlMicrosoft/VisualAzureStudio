@@ -13,7 +13,7 @@ namespace VisualAzureStudio.Models
 {
     class Helper
     {
-        public static bool GenerateARM(Design design, string outputFolder)
+        public static bool GenerateAZ(Design design, string outputFolder)
         {
             bool ret = true;
             if (design != null)
@@ -36,7 +36,7 @@ namespace VisualAzureStudio.Models
                     {
                         // Create AKS command
                         string createAKS = "az aks create --resource-group " + aks.ResourceGroup + " --name " + aks.Name +
-                            " --node-count " + aks.NodeCount + " --service-principal " + aks.ServicePrincipal.Id + " --client-secret "
+                            " --node-count " + aks.NodeCount + " --service-principal " + aks.ServicePrincipal.TenantId + " --client-secret "
                             + aks.ServicePrincipal.Password + " --generate-ssh-keys --location " + aks.Region;
                         fileWriter.WriteLine(createAKS);
                     }
