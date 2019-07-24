@@ -19,7 +19,7 @@ namespace VisualAzureStudio
             InitializeComponent();
         }
 
-        private void listView1_ItemActivate(object sender, EventArgs e)
+        private void ToolBoxListView_ItemActivate(object sender, EventArgs e)
         {
             switch (ToolBoxListView.SelectedItems[0].Text) {
                 case "App Service":
@@ -62,16 +62,16 @@ namespace VisualAzureStudio
                         false);
                     break;
 
-                case "MSI":
+                case "Managed Identity":
                     NewComponentControl(
                         new Msi {
-                            Name = GetFreeName("MSI", design),
+                            Name = GetFreeName("ManagedIdentity", design),
                             Location = GetFreeLocation(design),
                             ResourceGroup = design.GetCommonResourceGroup()
                         },
                         false);
                     break;
-                case "AKS":
+                case "Kubernetes Service":
                     NewComponentControl(
                         new Aks {
                             Name = GetFreeName("AKS", design),

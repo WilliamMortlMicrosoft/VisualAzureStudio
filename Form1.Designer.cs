@@ -33,8 +33,8 @@
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Server", 5);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("MSI", 3);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("AKS", 4);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Managed Identity", 3);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Kubernetes Service", 4);
             this.Canvas = new System.Windows.Forms.Panel();
             this.ImageList16 = new System.Windows.Forms.ImageList(this.components);
             this.ToolBoxListView = new System.Windows.Forms.ListView();
@@ -61,9 +61,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Canvas.BackColor = System.Drawing.SystemColors.Window;
-            this.Canvas.Location = new System.Drawing.Point(152, 44);
+            this.Canvas.Location = new System.Drawing.Point(171, 44);
             this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(700, 539);
+            this.Canvas.Size = new System.Drawing.Size(681, 539);
             this.Canvas.TabIndex = 0;
             this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
             this.Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDown);
@@ -97,12 +97,12 @@
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
             this.ToolBoxListView.Scrollable = false;
-            this.ToolBoxListView.Size = new System.Drawing.Size(133, 539);
+            this.ToolBoxListView.Size = new System.Drawing.Size(152, 539);
             this.ToolBoxListView.SmallImageList = this.ImageList16;
             this.ToolBoxListView.TabIndex = 4;
             this.ToolBoxListView.UseCompatibleStateImageBehavior = false;
             this.ToolBoxListView.View = System.Windows.Forms.View.Tile;
-            this.ToolBoxListView.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
+            this.ToolBoxListView.ItemActivate += new System.EventHandler(this.ToolBoxListView_ItemActivate);
             // 
             // ImageList32
             // 
@@ -118,7 +118,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 28);
+            this.label1.Location = new System.Drawing.Point(10, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 5;
@@ -202,7 +202,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 28);
+            this.label2.Location = new System.Drawing.Point(168, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 5;

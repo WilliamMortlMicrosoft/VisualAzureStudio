@@ -13,7 +13,7 @@ namespace VisualAzureStudio.Models.Components
         // Region
         // App Service Plan Name
         // SKU
-        public override string TypeDescription => "MSI";
+        public override string TypeDescription => "Managed Identity";
         public override int ImageIndex => 3;
         public override Color BackColor => Color.FromArgb(255, 207, 231, 255);
     }
