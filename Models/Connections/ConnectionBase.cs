@@ -1,14 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using Newtonsoft.Json;
 
 namespace VisualAzureStudio.Models.Connections
 {
     public class ConnectionBase
     {
-        [Browsable(false)]
-        public Guid Id { get; set; } = Guid.NewGuid();
-
         [Browsable(false)]
         public Guid Item1Id { get; set; }
 
@@ -16,9 +14,11 @@ namespace VisualAzureStudio.Models.Connections
         public Guid Item2Id { get; set; }
 
         [Browsable(false)]
+        [JsonIgnore]
         public Point Start { get; set; }
 
         [Browsable(false)]
+        [JsonIgnore]
         public Point End { get; set; }
     }
 }
