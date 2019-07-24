@@ -2,5 +2,6 @@
 {
     public class MsiAppServiceConnection : ConnectionBase
     {
+        public bool CanImpersonate { get; set; }
     }
 }
