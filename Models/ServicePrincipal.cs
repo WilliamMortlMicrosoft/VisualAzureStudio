@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace VisualAzureStudio.Models
 {
     [TypeConverter(typeof(ExpandableObjectConverter))]
+    [JsonConverter(typeof(NoTypeConverterJsonConverter<ServicePrincipal>))]
     public class ServicePrincipal
     {
         [Browsable(false)]
