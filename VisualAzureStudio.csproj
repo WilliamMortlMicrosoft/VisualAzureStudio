@@ -132,8 +132,8 @@
     <Content Include="Graphics\Key Vault16.png" />
     <Content Include="Graphics\MSI 16.png" />
     <Content Include="Graphics\MSI 32.png" />
-    <Content Include="Graphics\SQL 16.png" />
-    <Content Include="Graphics\SQL 32.png" />
+    <Content Include="Graphics\SqlDatabase16.png" />
+    <Content Include="Graphics\SqlDatabase32.png" />
     <Content Include="Graphics\SqlServer16.png" />
     <Content Include="Graphics\SqlServer32.png" />
     <Content Include="Graphics\VNET 16.png" />

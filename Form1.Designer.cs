@@ -29,12 +29,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("App Service", 0);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("SQL Server", 5);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("MSI", 3);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("AKS", 4);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("App Service", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Server", 5);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("MSI", 3);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("AKS", 4);
             this.Canvas = new System.Windows.Forms.Panel();
             this.ImageList16 = new System.Windows.Forms.ImageList(this.components);
             this.ToolBoxListView = new System.Windows.Forms.ListView();
@@ -74,7 +74,7 @@
             this.ImageList16.TransparentColor = System.Drawing.Color.Transparent;
             this.ImageList16.Images.SetKeyName(0, "App Service 16.png");
             this.ImageList16.Images.SetKeyName(1, "Key Vault 16a.png");
-            this.ImageList16.Images.SetKeyName(2, "SQL 16.png");
+            this.ImageList16.Images.SetKeyName(2, "SqlDatabase16.png");
             this.ImageList16.Images.SetKeyName(3, "MSI 16.png");
             this.ImageList16.Images.SetKeyName(4, "Aks16.png");
             this.ImageList16.Images.SetKeyName(5, "SqlServer16.png");
@@ -84,16 +84,19 @@
             this.ToolBoxListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ToolBoxListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ToolBoxListView.FullRowSelect = true;
             this.ToolBoxListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
+            this.ToolBoxListView.LabelWrap = false;
             this.ToolBoxListView.LargeImageList = this.ImageList32;
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
+            this.ToolBoxListView.Scrollable = false;
             this.ToolBoxListView.Size = new System.Drawing.Size(133, 539);
             this.ToolBoxListView.SmallImageList = this.ImageList16;
             this.ToolBoxListView.TabIndex = 4;
@@ -107,7 +110,7 @@
             this.ImageList32.TransparentColor = System.Drawing.Color.Transparent;
             this.ImageList32.Images.SetKeyName(0, "App Service 32.png");
             this.ImageList32.Images.SetKeyName(1, "Key Vault 32a.png");
-            this.ImageList32.Images.SetKeyName(2, "SQL 32.png");
+            this.ImageList32.Images.SetKeyName(2, "SqlDatabase32.png");
             this.ImageList32.Images.SetKeyName(3, "MSI 32.png");
             this.ImageList32.Images.SetKeyName(4, "Aks32.png");
             this.ImageList32.Images.SetKeyName(5, "SqlServer32.png");

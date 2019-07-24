@@ -40,7 +40,7 @@
             // 
             // ComponentTypeImage
             // 
-            this.ComponentTypeImage.Location = new System.Drawing.Point(0, 0);
+            this.ComponentTypeImage.Location = new System.Drawing.Point(3, 3);
             this.ComponentTypeImage.Name = "ComponentTypeImage";
             this.ComponentTypeImage.Size = new System.Drawing.Size(32, 32);
             this.ComponentTypeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -50,7 +50,7 @@
             // ComponnentTypeLabel
             // 
             this.ComponnentTypeLabel.AutoSize = true;
-            this.ComponnentTypeLabel.Location = new System.Drawing.Point(0, 36);
+            this.ComponnentTypeLabel.Location = new System.Drawing.Point(3, 39);
             this.ComponnentTypeLabel.Name = "ComponnentTypeLabel";
             this.ComponnentTypeLabel.Size = new System.Drawing.Size(92, 13);
             this.ComponnentTypeLabel.TabIndex = 1;
@@ -62,7 +62,7 @@
             // ResourceGroupLabel
             // 
             this.ResourceGroupLabel.AutoSize = true;
-            this.ResourceGroupLabel.Location = new System.Drawing.Point(0, 53);
+            this.ResourceGroupLabel.Location = new System.Drawing.Point(3, 56);
             this.ResourceGroupLabel.Name = "ResourceGroupLabel";
             this.ResourceGroupLabel.Size = new System.Drawing.Size(29, 13);
             this.ResourceGroupLabel.TabIndex = 2;
@@ -71,7 +71,7 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(38, 10);
+            this.NameLabel.Location = new System.Drawing.Point(41, 13);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(17, 13);
             this.NameLabel.TabIndex = 3;
@@ -83,7 +83,7 @@
             this.ConnectToMenuItem});
             this.ContextMenu.Name = "ContextMenu";
             this.ContextMenu.ShowImageMargin = false;
-            this.ContextMenu.Size = new System.Drawing.Size(156, 48);
+            this.ContextMenu.Size = new System.Drawing.Size(111, 26);
             this.ContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenu_Opening);
             // 
             // ConnectToMenuItem
@@ -102,7 +102,7 @@
             this.Controls.Add(this.ComponnentTypeLabel);
             this.Controls.Add(this.ComponentTypeImage);
             this.Name = "ComponentControl";
-            this.Size = new System.Drawing.Size(150, 68);
+            this.Size = new System.Drawing.Size(156, 74);
             this.LocationChanged += new System.EventHandler(this.ComponentControl_LocationChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseMove);
