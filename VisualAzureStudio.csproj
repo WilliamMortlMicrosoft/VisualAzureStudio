@@ -130,8 +130,8 @@
     <Content Include="Graphics\MSI 32.png" />
     <Content Include="Graphics\SQL 16.png" />
     <Content Include="Graphics\SQL 32.png" />
-    <Content Include="Graphics\SQL Server 16.png" />
-    <Content Include="Graphics\SQL Server 32.png" />
+    <Content Include="Graphics\SqlServer16.png" />
+    <Content Include="Graphics\SqlServer32.png" />
     <Content Include="Graphics\VNET 16.png" />
     <Content Include="Graphics\VNET 32.png" />
   </ItemGroup>
