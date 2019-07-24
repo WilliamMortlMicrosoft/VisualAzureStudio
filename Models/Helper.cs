@@ -13,7 +13,7 @@ namespace VisualAzureStudio.Models
 {
     class Helper
     {
-        public static bool GenerateARM(Design design, string outputFolder)
+        public static bool GenerateAZ(Design design, string outputFolder)
         {
             bool ret = true;
             if (design != null)
