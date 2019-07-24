@@ -29,12 +29,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("App Service", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Server", 5);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("MSI", 3);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("AKS", 4);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("App Service", 0);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("SQL Server", 5);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("MSI", 3);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("AKS", 4);
             this.Canvas = new System.Windows.Forms.Panel();
             this.ImageList16 = new System.Windows.Forms.ImageList(this.components);
             this.ToolBoxListView = new System.Windows.Forms.ListView();
@@ -83,13 +83,14 @@
             // 
             this.ToolBoxListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.ToolBoxListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ToolBoxListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.ToolBoxListView.LargeImageList = this.ImageList32;
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
@@ -126,6 +127,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PropertyGrid.Location = new System.Drawing.Point(858, 44);
             this.PropertyGrid.Name = "PropertyGrid";
+            this.PropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
             this.PropertyGrid.Size = new System.Drawing.Size(301, 489);
             this.PropertyGrid.TabIndex = 7;
             this.PropertyGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.PropertyGrid_PropertyValueChanged);
