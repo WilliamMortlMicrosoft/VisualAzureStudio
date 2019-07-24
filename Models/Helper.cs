@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using VisualAzureStudio.Models.Components;
+using VisualAzureStudio.Models.Connections;
 
 namespace VisualAzureStudio.Models
 {
@@ -29,7 +31,44 @@ namespace VisualAzureStudio.Models
                         string createRG = "az group create -l " + region + " -n " + resgroup;
                         fileWriter.WriteLine(createRG);
                     }
-                    
+
+                    foreach (Aks aks in design.Components.OfType<Aks>())
+                    {
+                        // Create AKS command
+                        string createAKS = "az aks create --resource-group " + aks.ResourceGroup + " --name " + aks.Name +
+                            " --node-count " + aks.NodeCount + " --service-principal " + aks.ServicePrincipal.Id + " --client-secret "
+                            + aks.ServicePrincipal.Password + " --generate-ssh-keys --location " + aks.Region;
+                        fileWriter.WriteLine(createAKS);
+                    }
+
+                    foreach (Msi msi in design.Components.OfType<Msi>())
+                    {
+                        // Create MSI command
+                        string createMSI = "az identity create --resource-group " + msi.ResourceGroup + " --name " + msi.Name + " -o json";
+                        fileWriter.WriteLine(createMSI);
+                    }
+
+                    foreach (SqlServer sqlserver in design.Components.OfType<SqlServer>())
+                    {
+                        // Create SQL server command
+                        string createserver = "az sql server create --admin-password " + sqlserver.AdministrationPassword +
+                            " --admin-user " + sqlserver.AdministrationName + " --name " + sqlserver.Name + " --resource-group "
+                            + sqlserver.ResourceGroup;
+                        fileWriter.WriteLine(createserver);
+                    }
+
+                    foreach (SqlDatabase db in design.Components.OfType<SqlDatabase>())
+                    {
+                        // Find its corresponding sql server
+                        SqlDatabaseSqlServerConnection conn = design.Connections.OfType<SqlDatabaseSqlServerConnection>().
+                            FirstOrDefault(c => c.Item1Id == db.Id || c.Item2Id == db.Id);
+                        SqlServer server = design.Components.OfType<SqlServer>().FirstOrDefault(c => c.Id == conn.Item1Id || c.Id == conn.Item2Id);
+                        // Create sql db command
+                        string createDB = "az sql db create --name " + db.Name + " --resource-group " + db.ResourceGroup
+                            + " --server " + server.Name;
+                        fileWriter.WriteLine(createDB);
+                    }
+
                     foreach (KeyVault keyvault in design.Components.OfType<KeyVault>())
                     {
                         // Create key vault command
@@ -37,9 +76,7 @@ namespace VisualAzureStudio.Models
                             keyvault.ResourceGroup + " --location " + keyvault.Region;
                         fileWriter.WriteLine(createKV);
                     }
-
                 }
-
             }
 
             return ret;
