@@ -76,6 +76,17 @@ namespace VisualAzureStudio.Models
                             keyvault.ResourceGroup + " --location " + keyvault.Region;
                         fileWriter.WriteLine(createKV);
                     }
+
+                    foreach (AppService app in design.Components.OfType<AppService>())
+                    {
+                        // Create web app and service plan command
+                        string createServicePlan = "az appservice plan create --name " + app.Name + "_plan --resource-group " +
+                            app.ResourceGroup + " --location " + app.Region + " --sku S1";
+                        fileWriter.WriteLine(createServicePlan);
+                        string createWebApp = "az webapp create --name " + app.Name + " --resource-group " + app.ResourceGroup
+                            + " --plan " + app.Name + "_plan";
+                        fileWriter.WriteLine(createWebApp);
+                    }
                 }
             }
 
