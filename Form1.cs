@@ -40,10 +40,20 @@ namespace VisualAzureStudio
                         false);
                     break;
 
+                case "SQL Server":
+                    NewComponentControl(
+                        new SqlServer {
+                            Name = GetFreeName("SQLServer", design),
+                            Location = GetFreeLocation(design),
+                            ResourceGroup = design.GetCommonResourceGroup()
+                        },
+                        false);
+                    break;
+
                 case "SQL Database":
                     NewComponentControl(
                         new SqlDatabase {
-                            Name = GetFreeName("SQLServer", design),
+                            Name = GetFreeName("SQLDatabase", design),
                             Location = GetFreeLocation(design),
                             ResourceGroup = design.GetCommonResourceGroup()
                         },
@@ -124,6 +134,7 @@ namespace VisualAzureStudio
 
             if (!existing) {
                 design.Components.Add(newComponent);
+                design.IsDirty = true;
             }
 
             Canvas.Controls.Add(newComponentControl);
@@ -184,6 +195,16 @@ namespace VisualAzureStudio
 
         private void FileSaveAsMenuItem_Click(object sender, EventArgs e)
         {
+            SaveDesign();
+        }
+
+        private static void SaveDesign()
+        {
+            if (design.Path != null) {
+                WriteDesignFile(design, design.Path);
+                return;
+            }
+
             using (SaveFileDialog dialog = new SaveFileDialog()) {
                 dialog.AddExtension = true;
                 dialog.DefaultExt = "*.vas";
@@ -193,14 +214,20 @@ namespace VisualAzureStudio
                     return;
                 }
 
-                JsonSerializerSettings settings = new JsonSerializerSettings {
-                    TypeNameHandling = TypeNameHandling.Auto,
-                    Formatting = Formatting.Indented
-                };
-
-                File.WriteAllText(dialog.FileName, JsonConvert.SerializeObject(design, settings));
+                WriteDesignFile(design, dialog.FileName);
                 design.Path = dialog.FileName;
             }
+        }
+
+        private static void WriteDesignFile(Design design, string fileName)
+        {
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.Auto,
+                Formatting = Formatting.Indented
+            };
+
+            File.WriteAllText(fileName, JsonConvert.SerializeObject(design, settings));
+            design.IsDirty = false;
         }
 
         internal static Design design { get; private set; } = new Design();
@@ -291,8 +318,24 @@ namespace VisualAzureStudio
                 // Dialog box: generated ARM successfully
                 MessageBox.Show("ARM created successfully!");
             }
+        }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (design.IsDirty) {
+                DialogResult result = MessageBox.Show("Save design before exiting?", "Visual Azure Studio", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Cancel) {
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (result == DialogResult.Yes) {
+
+                }
+
+                e.Cancel = false;
+            }
         }
     }
 }

@@ -31,14 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("App Service", 0);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Key Vault", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("MSI", 3);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("AKS", 4);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("SQL Server", 5);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("SQL Database", 2);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("MSI", 3);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("AKS", 4);
             this.Canvas = new System.Windows.Forms.Panel();
             this.ImageList16 = new System.Windows.Forms.ImageList(this.components);
             this.ToolBoxListView = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
             this.ImageList32 = new System.Windows.Forms.ImageList(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.PropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +77,7 @@
             this.ImageList16.Images.SetKeyName(2, "SQL 16.png");
             this.ImageList16.Images.SetKeyName(3, "MSI 16.png");
             this.ImageList16.Images.SetKeyName(4, "Aks16.png");
+            this.ImageList16.Images.SetKeyName(5, "SqlServer16.png");
             // 
             // ToolBoxListView
             // 
@@ -86,7 +88,8 @@
             listViewItem2,
             listViewItem3,
             listViewItem4,
-            listViewItem5});
+            listViewItem5,
+            listViewItem6});
             this.ToolBoxListView.LargeImageList = this.ImageList32;
             this.ToolBoxListView.Location = new System.Drawing.Point(13, 44);
             this.ToolBoxListView.Name = "ToolBoxListView";
@@ -97,15 +100,6 @@
             this.ToolBoxListView.View = System.Windows.Forms.View.Tile;
             this.ToolBoxListView.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Toolbox";
-            // 
             // ImageList32
             // 
             this.ImageList32.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList32.ImageStream")));
@@ -115,6 +109,16 @@
             this.ImageList32.Images.SetKeyName(2, "SQL 32.png");
             this.ImageList32.Images.SetKeyName(3, "MSI 32.png");
             this.ImageList32.Images.SetKeyName(4, "Aks32.png");
+            this.ImageList32.Images.SetKeyName(5, "SqlServer32.png");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Toolbox";
             // 
             // PropertyGrid
             // 
@@ -236,6 +240,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Visual Azure Studio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

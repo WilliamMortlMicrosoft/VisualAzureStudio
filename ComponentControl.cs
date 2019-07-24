@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -80,7 +81,9 @@ namespace VisualAzureStudio
 
             foreach (ComponentBase component in Form1.design.Components.Where(c => c != Tag)) {
                 // skip if connection is not allowed
-                if (!AllowedConnections.Allowed.Any(a => a.Item1 == tagComponent.GetType() && a.Item2 == component.GetType() || a.Item1 == component.GetType() && a.Item2 == tagComponent.GetType())) {
+                List<AllowedConnection> allowedConnections = AllowedConnections.Allowed.Where(a => a.Item1 == tagComponent.GetType() && a.Item2 == component.GetType() || a.Item1 == component.GetType() && a.Item2 == tagComponent.GetType()).ToList();
+
+                if (allowedConnections.Count == 0) {
                     continue;
                 }
 
@@ -91,7 +94,7 @@ namespace VisualAzureStudio
 
                 ToolStripButton toolStripButton = new ToolStripButton {
                     Text = component.Name,
-                    Tag = new Tuple<ComponentBase, ComponentBase>(component, tagComponent)
+                    Tag = new Tuple<ComponentBase, ComponentBase, Type>(component, tagComponent, allowedConnections.First().Item3)
                 };
 
                 toolStripButton.Click += ComponentControl_Click;
@@ -101,8 +104,15 @@ namespace VisualAzureStudio
 
         private void ComponentControl_Click(object sender, EventArgs e)
         {
-            Tuple<ComponentBase, ComponentBase> items = (sender as ToolStripItem).Tag as Tuple<ComponentBase, ComponentBase>;
-            Form1.design.Connections.Add(new MsiSqlDatabaseConnection { Item1Id = items.Item1.Id, Item2Id = items.Item2.Id });
+            Tuple<ComponentBase, ComponentBase, Type> items = (sender as ToolStripItem).Tag as Tuple<ComponentBase, ComponentBase, Type>;
+
+            ConnectionBase newConnection = (ConnectionBase)Activator.CreateInstance(items.Item3);
+            newConnection.Item1Id = items.Item1.Id;
+            newConnection.Item2Id = items.Item2.Id;
+
+            Form1.design.Connections.Add(newConnection);
+            Form1.design.IsDirty = true;
+
             Parent.Invalidate();
         }
     }
