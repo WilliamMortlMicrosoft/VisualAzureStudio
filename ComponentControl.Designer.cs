@@ -55,7 +55,6 @@
             // 
             this.ComponnentTypeLabel.AutoSize = true;
             this.ComponnentTypeLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.ComponnentTypeLabel.ForeColor = System.Drawing.Color.Black;
             this.ComponnentTypeLabel.Location = new System.Drawing.Point(3, 39);
             this.ComponnentTypeLabel.Name = "ComponnentTypeLabel";
             this.ComponnentTypeLabel.Size = new System.Drawing.Size(92, 13);
@@ -69,25 +68,21 @@
             // 
             this.ResourceGroupLabel.AutoSize = true;
             this.ResourceGroupLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.ResourceGroupLabel.ForeColor = System.Drawing.Color.Black;
             this.ResourceGroupLabel.Location = new System.Drawing.Point(3, 56);
             this.ResourceGroupLabel.Name = "ResourceGroupLabel";
             this.ResourceGroupLabel.Size = new System.Drawing.Size(29, 13);
             this.ResourceGroupLabel.TabIndex = 2;
             this.ResourceGroupLabel.Text = "RG: ";
-            this.ResourceGroupLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseDown);
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.NameLabel.ForeColor = System.Drawing.Color.Black;
             this.NameLabel.Location = new System.Drawing.Point(41, 13);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(17, 13);
             this.NameLabel.TabIndex = 3;
             this.NameLabel.Text = "\"\"";
-            this.NameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.componentControl_MouseDown);
             // 
             // ContextMenu
             // 
