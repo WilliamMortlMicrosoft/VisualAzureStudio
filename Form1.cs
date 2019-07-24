@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using VisualAzureStudio.Models;
 using VisualAzureStudio.Models.Components;
 using VisualAzureStudio.Models.Connections;
+using VisualAzureStudio.Rules;
 
 namespace VisualAzureStudio
 {
@@ -301,6 +303,16 @@ namespace VisualAzureStudio
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
+            // check for violations
+
+            List<Violation> violations = design.GetViolations();
+
+            if (violations != null && violations.Count > 0)
+            {
+                MessageBox.Show(violations.Select(v => v.Description).Aggregate((a, b) => a + "\r\n" + b));
+                return;
+            }
+
             if (design.Path == null) {
                 // design must be saved first to establish the path
                 FileSaveAsMenuItem_Click(this, new EventArgs());

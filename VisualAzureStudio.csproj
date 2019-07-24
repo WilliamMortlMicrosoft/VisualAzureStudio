@@ -82,6 +82,8 @@
     <Compile Include="NoTypeConverterJsonConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\Rules.cs" />
+    <Compile Include="Rules\Violation.cs" />
     <EmbeddedResource Include="ComponentControl.resx">
       <DependentUpon>ComponentControl.cs</DependentUpon>
     </EmbeddedResource>
