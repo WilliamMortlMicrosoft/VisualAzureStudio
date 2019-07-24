@@ -316,7 +316,7 @@ namespace VisualAzureStudio
             if (Helper.GenerateARM(design, outputFolder))
             {
                 // Dialog box: generated ARM successfully
-                MessageBox.Show("ARM created successfully!");
+                MessageBox.Show("AZ command file generated successfully!");
             }
         }
 
