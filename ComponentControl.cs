@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using VisualAzureStudio.Models.Components;
 using VisualAzureStudio.Models.Connections;
+using VisualAzureStudio.Properties;
 
 namespace VisualAzureStudio
 {
@@ -119,7 +120,7 @@ namespace VisualAzureStudio
         {
             ComponentBase component = Tag as ComponentBase;
 
-            if (MessageBox.Show($"Delete {component.TypeDescription} \"{component.Name}\"?", "Visual Azure Studio", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+            if (MessageBox.Show($"Delete {component.TypeDescription} \"{component.Name}\"?", Resources.ProgramName, MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 Deleted?.Invoke(this, new EventArgs());
             }
         }

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using VisualAzureStudio.Models;
 using VisualAzureStudio.Models.Components;
 using VisualAzureStudio.Models.Connections;
+using VisualAzureStudio.Properties;
 using VisualAzureStudio.Rules;
 
 namespace VisualAzureStudio
@@ -330,7 +331,7 @@ namespace VisualAzureStudio
             List<Violation> violations = design.GetViolations();
 
             if (violations != null && violations.Count > 0) {
-                MessageBox.Show(violations.Select(v => v.Description).Aggregate((a, b) => a + "\r\n" + b), "Visual Azure Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(violations.Select(v => v.Description).Aggregate((a, b) => a + "\r\n" + b), Resources.ProgramName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -363,7 +364,7 @@ namespace VisualAzureStudio
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (design.IsDirty) {
-                DialogResult result = MessageBox.Show("Save design before exiting?", "Visual Azure Studio", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Save design before exiting?", Resources.ProgramName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Cancel) {
                     e.Cancel = true;
