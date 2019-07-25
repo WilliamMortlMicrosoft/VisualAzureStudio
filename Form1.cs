@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -155,6 +156,8 @@ namespace VisualAzureStudio
             // delete object
 
             design.Components.Remove(componentBeingDeleted);
+
+            design.IsDirty = true;
 
             // delete control
 
@@ -327,7 +330,7 @@ namespace VisualAzureStudio
             List<Violation> violations = design.GetViolations();
 
             if (violations != null && violations.Count > 0) {
-                MessageBox.Show(violations.Select(v => v.Description).Aggregate((a, b) => a + "\r\n" + b));
+                MessageBox.Show(violations.Select(v => v.Description).Aggregate((a, b) => a + "\r\n" + b), "Visual Azure Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -342,11 +345,19 @@ namespace VisualAzureStudio
 
             string outputFolder = Path.Combine(Path.GetDirectoryName(design.Path), Path.GetFileNameWithoutExtension(design.Path)) + "_output";
 
-            // call generate method here
-            if (Helper.GenerateAZ(design, outputFolder)) {
-                // Dialog box: generated AZ successfully
-                MessageBox.Show("AZ command file generated successfully!");
+            if (!Helper.GenerateAZ(design, outputFolder)) {
+                return;
             }
+
+            Process process = new Process {
+                StartInfo = {
+                    FileName = "notepad.exe",
+                    Arguments = Path.Combine(Path.GetDirectoryName(design.Path), Path.GetFileNameWithoutExtension(design.Path)+"_output","azcommands.txt"),
+                    WindowStyle = ProcessWindowStyle.Normal
+                }
+            };
+
+            process.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
