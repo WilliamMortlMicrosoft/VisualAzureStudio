@@ -233,8 +233,8 @@ namespace VisualAzureStudio
             using (SaveFileDialog dialog = new SaveFileDialog()) {
                 dialog.AddExtension = true;
                 dialog.DefaultExt = "*.vas";
-                dialog.Filter = "Visual Azure Studio files (*.vas)|*.vas";
-
+                dialog.Filter = Resources.ProgramName + " files (*.vas)|*.vas";
+                
                 if (dialog.ShowDialog() != DialogResult.OK) {
                     return;
                 }
